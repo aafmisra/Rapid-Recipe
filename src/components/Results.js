@@ -2,15 +2,18 @@ import React, { Component } from 'react'
 
 class Results extends Component {
     // console.log(props)
-    componentDidMount() {
-        const url = `https://api.edamam.com/search?app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}&from=0&to=12&q=pistachios,pecans,cinnamon`
+    // componentDidMount() {
+    //     function getRecipes() {
+    //         const url = `https://api.edamam.com/search?app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}&from=0&to=12&q=${this.props.includeSearchString}&exclude=${this.props.excludeSearchString}`
+    
+    //         fetch(url)
+    //         .then(response => response.json())
+    //         .then(response => {
+    //             let recipes = response.hits
+    //             this.props.setRecipes(recipes)})
 
-        fetch(url)
-        .then(response => response.json())
-        .then(response => {
-            let recipes = response.hits
-            this.props.setRecipes(recipes)})
-    }
+    //     }
+    // }
 
     render() {
         console.log(this.props)
@@ -22,18 +25,22 @@ class Results extends Component {
                   src={eachRecipe.recipe.image}
                   alt={eachRecipe.recipe.label}
                 />
-                <h4>Ingredients:</h4>
-                <ul>
-                  {eachRecipe.recipe.ingredientLines.map(ingr => {
-                    return <li>{ingr}</li>;
-                  })}
-                </ul>
+                <details>
+                  <summary>
+                    <h4>Ingredients:</h4>
+                  </summary>
+                  <ul>
+                    {eachRecipe.recipe.ingredientLines.map(ingr => {
+                      return <li>{ingr}</li>;
+                    })}
+                  </ul>
+                </details>
                 <a
                   href={eachRecipe.recipe.url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                    <button>Full Recipe</button>
+                  <button>Full Recipe</button>
                 </a>
               </div>
             );
