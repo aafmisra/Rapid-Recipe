@@ -7,11 +7,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipes: recipes
+      recipes: []
     }
   }
 
-  setRecipes() {
+  setRecipes = (recipes) => {
     this.setState({ recipes: recipes })
   }
 
@@ -20,7 +20,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <SearchForm />
-        <Results setRecipes={this.setRecipes}/>
+        <Results recipes={this.state.recipes} setRecipes={this.setRecipes}/>
       </div>
     );
   }
