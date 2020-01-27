@@ -42,7 +42,7 @@ Bronze (MVP)
 - [ ] Deployed using Heroku
 - [ ] Uses flexbox or CSS grid for layout
 - [ ] Allows users to search recipes with ingredients to include
-- [ ] Allows users to search recipes with ingredients to include exclude
+- [ ] Allows users to search recipes with ingredients to exclude
 - [ ] Allows users to search recipes with health-conscious options
 
 Silver
