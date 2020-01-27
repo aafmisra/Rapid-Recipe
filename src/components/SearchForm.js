@@ -1,9 +1,12 @@
 import React from 'react';
 
+
 function SearchForm(props) {
   return (
     <div>
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={props.handleSubmit} className="searchForm">
+        <div className="textInputs">
+          <label className="search">include:</label>
         <input
           type="text"
           id="includeSearchString"
@@ -11,15 +14,19 @@ function SearchForm(props) {
           placeholder="search"
           required
           onChange={props.handleChange}
+          className="search"
         />
+          <label className="search">exclude:</label>
         <input
           type="text"
           id="excludeSearchString"
           value={props.excludeSearchString}
           placeholder="search"
           onChange={props.handleChange}
+          className="search"
         />
-        <button type="submit">Search</button>
+          <button type="submit" className="search">Search</button>
+        </div>
         <details>
           <summary>Click to expand diet options</summary>
           <input

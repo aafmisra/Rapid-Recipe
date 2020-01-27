@@ -26,29 +26,30 @@ class App extends Component {
   };
 
   handleSubmit = event => {
+    console.log(event.target)
     event.preventDefault();
+    let splitString = this.state.excludeSearchString.split(" ").map(subStr => {
+      return (`&excluded=${subStr}`)
+    }).join("")
     this.setState({
-      includeSearchString: event.target.value,
-      excludeSearchString: event.target.value,
+      // includeSearchString: event.target.value,
+      // excludeSearchString: splitString
     });
-    this.getRecipes();
+    console.log(this.state.excludeSearchString)
+    this.getRecipes(splitString);
   };
 
 
-  getRecipes = () => {
-    const url = `https://api.edamam.com/search?app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}&from=0&to=12&q=${this.state.includeSearchString}&excluded=${this.state.excludeSearchString}`;
+  getRecipes = (splitString) => {
+    const url = `https://api.edamam.com/search?app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}&from=0&to=12&q=${this.state.includeSearchString}${splitString}`;
 
     fetch(url)
       .then(response => response.json())
       .then(response => {
         let recipes = response.hits;
-        this.setRecipes(recipes);
+          this.setRecipes(recipes);
       });
   };
-  // componentDidMount() {
-  //   console.log("didmount")
-  //   this.getRecipes()
-  // }
 
   render() {
     return (
@@ -65,13 +66,13 @@ class App extends Component {
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
                     getRecipes={this.getRecipes}
-                    // includeSearchString={this.state.includeSearchString}
-                    // excludeSearchString={this.state.excludeSearchString}
+                    includeSearchString={this.state.includeSearchString}
+                    excludeSearchString={this.state.excludeSearchString}
                   />
-                  <Results
-                    recipes={this.state.recipes}
-                    bookmarkedRecipes={this.state.bookmarkedRecipes}
-                  />
+              <Results
+                recipes={this.state.recipes}
+                bookmarkedRecipes={this.state.bookmarkedRecipes}
+              />
                 </div>
               );
             }}

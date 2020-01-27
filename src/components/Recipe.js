@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 class Recipe extends Component {
   render() {
+    if (!this.props.recipes.length) {
+      return <p>Search ingredients to get started!</p>
+    }
     console.log(this.props);
     const resultsGallery = this.props.recipes.map(eachRecipe => {
       return (
@@ -13,8 +16,8 @@ class Recipe extends Component {
               <h4>Ingredients:</h4>
             </summary>
             <ul key={eachRecipe.recipe.url}>
-              {eachRecipe.recipe.ingredientLines.map(ingr => {
-                return <li>{ingr}</li>;
+              {eachRecipe.recipe.ingredientLines.map((ingr, i) => {
+                return <li key={i}>{ingr}</li>;
               })}
             </ul>
           </details>

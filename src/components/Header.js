@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import logo from '../rapid-recipe-logo.svg'
 
 function Header() {
     return (
-      <div>
+      <div className="header">
+          <img src={ logo } alt="logo" className="logo"/>
         <Link to="/">
           <h1>Rapid Recipe</h1>
         </Link>
