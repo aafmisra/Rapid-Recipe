@@ -26,16 +26,10 @@ class App extends Component {
   };
 
   handleSubmit = event => {
-    console.log(event.target)
     event.preventDefault();
     let splitString = this.state.excludeSearchString.split(" ").map(subStr => {
       return (`&excluded=${subStr}`)
     }).join("")
-    this.setState({
-      // includeSearchString: event.target.value,
-      // excludeSearchString: splitString
-    });
-    console.log(this.state.excludeSearchString)
     this.getRecipes(splitString);
   };
 
