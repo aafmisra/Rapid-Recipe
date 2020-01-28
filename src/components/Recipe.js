@@ -30,7 +30,7 @@ class Recipe extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button>Full Recipe</button>
+            <button className="fullRecipe">Full Recipe</button>
           </a>
           <a href="/">
           <img

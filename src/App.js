@@ -57,13 +57,17 @@ class App extends Component {
   };
 
   getRecipes = (splitString, filterArray) => {
+    console.log("hello")
     const url = `https://api.edamam.com/search?app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}&from=0&to=12&q=${this.state.includeSearchString}${splitString}${filterArray}`;
 
     fetch(url)
       .then(response => response.json())
       .then(response => {
         let recipes = response.hits;
-        this.setRecipes(recipes);
+          this.setRecipes(recipes);
+        if (!recipes.length) {
+           return <p>Oops! Looks like we didn't find any recipes with those ingredients.</p>
+        }
         console.log(url)
       });
   };
@@ -108,6 +112,11 @@ class App extends Component {
             }}
           />
         </Switch>
+        <footer>
+          <p>©2020 Asha Misra &#128024;</p>
+          <a href="https://github.com/aafmisra/fieldwork-flashcards">Check out the repo on GitHub</a>
+          <a href="https://www.linkedin.com/in/asha-misra/">Find me on LinkedIn</a>
+        </footer>
       </div>
     );
   }
