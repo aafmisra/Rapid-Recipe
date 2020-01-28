@@ -3,6 +3,7 @@ import React from 'react';
 function SearchForm(props) {
   return (
     <div>
+      <p className="instructions">To find recipes using what you already have in your kitchen, enter ingredients separated by a space (i.e. greek+yogurt lemon)</p>
       <form onSubmit={props.handleSubmit} className="searchForm">
         <div className="textInputs">
           <label className="search">include:</label>

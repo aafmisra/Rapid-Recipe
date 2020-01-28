@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
+import bookmark from '../bookmark.svg'
 
 class Recipe extends Component {
   render() {
     if (!this.props.recipes.length) {
-      return <p>Search ingredients to get started!</p>
+      return <p className="instructions">Search ingredients to get started!</p>
     }
     console.log(this.props);
     const resultsGallery = this.props.recipes.map(eachRecipe => {
       return (
         <div className="recipeCard" key={eachRecipe.recipe.uri}>
           <h3>{eachRecipe.recipe.label}</h3>
-          <img src={eachRecipe.recipe.image} alt={eachRecipe.recipe.label} />
-          <details>
-            <summary>
+          <img src={eachRecipe.recipe.image} alt={eachRecipe.recipe.label} className="recipePic"/>
+          
               <h4>Ingredients:</h4>
-            </summary>
-            <ul key={eachRecipe.recipe.url}>
+            
+            <ul key={eachRecipe.recipe.url} className="ingredientList">
               {eachRecipe.recipe.ingredientLines.map((ingr, i) => {
                 return <li key={i}>{ingr}</li>;
               })}
             </ul>
-          </details>
+          
           <a
             href={eachRecipe.recipe.url}
             target="_blank"
@@ -41,7 +41,7 @@ class Recipe extends Component {
         </div>
       );
     });
-    return <div>{resultsGallery}</div>;
+    return <div className="resultsGallery">{resultsGallery}</div>;
   }
 }
 
