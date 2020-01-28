@@ -28,16 +28,12 @@ class Recipe extends Component {
           >
             <button>Full Recipe</button>
           </a>
-          <button
-            onClick={() => {
-              console.log(eachRecipe);
-              this.props.bookmarkedRecipes.push(eachRecipe);
-              window.localStorage.setItem("bookmarks", JSON.stringify(this.props.bookmarkedRecipes));
-              console.log('pushed', this.props.bookmarkedRecipes);
-            }}
-          >
-            Save Recipe
-          </button>
+          <img src={bookmark} alt="bookmark" className="bookmark" onClick={() => {
+            console.log(eachRecipe);
+            this.props.bookmarkedRecipes.push(eachRecipe);
+            window.localStorage.setItem("bookmarks", JSON.stringify(this.props.bookmarkedRecipes));
+            console.log('pushed', this.props.bookmarkedRecipes);
+          }}/>
         </div>
       );
     });
