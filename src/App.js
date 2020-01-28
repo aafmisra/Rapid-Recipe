@@ -17,6 +17,20 @@ class App extends Component {
     };
   }
 
+  componentDidMount = () => {
+    this.selectedCheckboxes = new Set()
+  }
+
+  toggleCheckbox= event => {
+    if (this.selectedCheckboxes.has(event.target)) {
+      this.selectedCheckboxes.delete(event.target);
+    } else {
+      this.selectedCheckboxes.add(event.target)
+    }
+    console.log(this.selectedCheckboxes)
+  }
+
+
   setRecipes = recipes => {
     this.setState({ recipes: recipes });
   };
@@ -25,23 +39,32 @@ class App extends Component {
     this.setState({ [event.target.id]: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    let splitString = this.state.excludeSearchString.split(" ").map(subStr => {
-      return (`&excluded=${subStr}`)
-    }).join("")
-    this.getRecipes(splitString);
+    let splitString = this.state.excludeSearchString
+      .split(' ')
+      .map(subStr => {
+        return `&excluded=${subStr}`;
+      })
+      .join('');
+      let setArray = Array.from(this.selectedCheckboxes)
+      console.log(setArray)
+      let filterArray = setArray.map(entry => {
+        return `&${entry.name}=${entry.value}`
+      }).join('')
+      console.log(filterArray)
+    this.getRecipes(splitString, filterArray);
   };
 
-
-  getRecipes = (splitString) => {
-    const url = `https://api.edamam.com/search?app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}&from=0&to=12&q=${this.state.includeSearchString}${splitString}`;
+  getRecipes = (splitString, filterArray) => {
+    const url = `https://api.edamam.com/search?app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}&from=0&to=12&q=${this.state.includeSearchString}${splitString}${filterArray}`;
 
     fetch(url)
       .then(response => response.json())
       .then(response => {
         let recipes = response.hits;
-          this.setRecipes(recipes);
+        this.setRecipes(recipes);
+        console.log(url)
       });
   };
 
@@ -59,26 +82,31 @@ class App extends Component {
                   <SearchForm
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
+                    toggleCheckbox={this.toggleCheckbox}
                     getRecipes={this.getRecipes}
+                    searchFilters={this.state.searchFilters}
                     includeSearchString={this.state.includeSearchString}
                     excludeSearchString={this.state.excludeSearchString}
                   />
-              <Results
-                recipes={this.state.recipes}
-                bookmarkedRecipes={this.state.bookmarkedRecipes}
-              />
+                  <Results
+                    recipes={this.state.recipes}
+                    bookmarkedRecipes={this.state.bookmarkedRecipes}
+                  />
                 </div>
               );
             }}
           />
-          <Route path="/bookmarks" render={() => {
-            return (
-              <Results
-                recipes={this.state.bookmarkedRecipes}
-                bookmarkedRecipes={this.state.bookmarkedRecipes}
-              />
-            );
-          }} />
+          <Route
+            path="/bookmarks"
+            render={() => {
+              return (
+                <Results
+                  recipes={this.state.bookmarkedRecipes}
+                  bookmarkedRecipes={this.state.bookmarkedRecipes}
+                />
+              );
+            }}
+          />
         </Switch>
       </div>
     );

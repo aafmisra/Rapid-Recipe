@@ -3,7 +3,10 @@ import React from 'react';
 function SearchForm(props) {
   return (
     <div>
-      <p className="instructions">To find recipes using what you already have in your kitchen, enter ingredients separated by a space (i.e. greek+yogurt lemon)</p>
+      <p className="instructions">
+        To find recipes using what you already have in your kitchen, enter
+        ingredients separated by a space (i.e. greek+yogurt lemon)
+      </p>
       <form onSubmit={props.handleSubmit} className="searchForm">
         <div className="textInputs">
           <label className="search">include:</label>
@@ -40,6 +43,7 @@ function SearchForm(props) {
                   id="balanced"
                   name="diet"
                   value="balanced"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="balanced">Balanced</label>
               </li>
@@ -49,6 +53,7 @@ function SearchForm(props) {
                   id="high-protein"
                   name="diet"
                   value="high-protein"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="high-protein">High-protein</label>
               </li>
@@ -58,6 +63,7 @@ function SearchForm(props) {
                   id="high-fiber"
                   name="diet"
                   value="high-fiber"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="high-fiber">High-fiber</label>
               </li>
@@ -67,6 +73,7 @@ function SearchForm(props) {
                   id="low-fat"
                   name="diet"
                   value="low-fat"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="low-fat">Low-fat</label>
               </li>
@@ -76,6 +83,7 @@ function SearchForm(props) {
                   id="low-carb"
                   name="diet"
                   value="low-carb"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="low-carb">Low-carb</label>
               </li>
@@ -85,6 +93,7 @@ function SearchForm(props) {
                   id="low-sodium"
                   name="diet"
                   value="low-sodium"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="low-sodium">Low-sodium</label>
               </li>
@@ -97,6 +106,7 @@ function SearchForm(props) {
                   id="alcohol-free"
                   name="health"
                   value="alcohol-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="alcohol-free">Alcohol-free</label>
               </li>
@@ -106,6 +116,7 @@ function SearchForm(props) {
                   id="fodmap-free"
                   name="health"
                   value="fodmap-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="fodmap-free">FODMAP-free</label>
               </li>
@@ -115,6 +126,7 @@ function SearchForm(props) {
                   id="keto-friendly"
                   name="health"
                   value="keto-friendly"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="keto-friendly">Keto</label>
               </li>
@@ -124,6 +136,7 @@ function SearchForm(props) {
                   id="kidney-friendly"
                   name="health"
                   value="kidney-friendly"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="kidney-friendly">Kidney friendly</label>
               </li>
@@ -133,6 +146,7 @@ function SearchForm(props) {
                   id="low-potassium"
                   name="health"
                   value="low-potassium"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="low-potassium">Low potassium</label>
               </li>
@@ -142,6 +156,7 @@ function SearchForm(props) {
                   id="kosher"
                   name="health"
                   value="kosher"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="kosher">Kosher</label>
               </li>
@@ -151,6 +166,7 @@ function SearchForm(props) {
                   id="No-oil-added"
                   name="health"
                   value="No-oil-added"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="No-oil-added">No oil added</label>
               </li>
@@ -160,21 +176,29 @@ function SearchForm(props) {
                   id="low-sugar"
                   name="health"
                   value="low-sugar"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="low-sugar">No-sugar</label>
               </li>
               <li>
-                <input type="checkbox" id="paleo" name="health" value="paleo" />
+                <input
+                  type="checkbox"
+                  id="paleo"
+                  name="health"
+                  value="paleo"
+                  onChange={props.toggleCheckbox}
+                />
                 <label htmlFor="paleo">Paleo</label>
               </li>
               <li>
                 <input
                   type="checkbox"
-                  id="pecatarian"
+                  id="pescatarian"
                   name="health"
-                  value="pecatarian"
+                  value="pescatarian"
+                  onChange={props.toggleCheckbox}
                 />
-                <label htmlFor="pecatarian">Pescatarian</label>
+                <label htmlFor="pescatarian">Pescatarian</label>
               </li>
               <li>
                 <input
@@ -182,6 +206,7 @@ function SearchForm(props) {
                   id="pork-free"
                   name="health"
                   value="pork-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="pork-free">Pork-free</label>
               </li>
@@ -191,6 +216,7 @@ function SearchForm(props) {
                   id="red-meat-free"
                   name="health"
                   value="red-meat-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="red-meat-free">Red meat-free</label>
               </li>
@@ -200,19 +226,27 @@ function SearchForm(props) {
                   id="vegetarian"
                   name="health"
                   value="vegetarian"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="vegetarian">Vegetarian</label>
               </li>
               <li>
-                <input type="checkbox" id="vegan" name="health" value="vegan" />
+                <input
+                  type="checkbox"
+                  id="vegan"
+                  name="health"
+                  value="vegan"
+                  onChange={props.toggleCheckbox}
+                />
                 <label htmlFor="vegan">Vegan</label>
               </li>
               <li>
                 <input
                   type="checkbox"
-                  id="low-sugar"
+                  id="sugar-conscious"
                   name="health"
-                  value="low-sugar"
+                  value="sugar-conscious"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="low-sugar">Low-sugar</label>
               </li>
@@ -225,6 +259,7 @@ function SearchForm(props) {
                   id="celery-free"
                   name="health"
                   value="celery-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="celery-free">Celery</label>
               </li>
@@ -234,6 +269,7 @@ function SearchForm(props) {
                   id="crustacean-free"
                   name="health"
                   value="crustacean-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="crustacean-free">Crustcean</label>
               </li>
@@ -243,6 +279,7 @@ function SearchForm(props) {
                   id="healhTags"
                   name="health"
                   value="dairy-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="dairy-free">Dairy</label>
               </li>
@@ -252,6 +289,7 @@ function SearchForm(props) {
                   id="egg-free"
                   name="health"
                   value="egg-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="egg-free">Egg</label>
               </li>
@@ -261,6 +299,7 @@ function SearchForm(props) {
                   id="fish-free"
                   name="health"
                   value="fish-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="fish-free">Fish</label>
               </li>
@@ -270,6 +309,7 @@ function SearchForm(props) {
                   id="gluten-free"
                   name="health"
                   value="gluten-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="gluten-free">Gluten</label>
               </li>
@@ -279,6 +319,7 @@ function SearchForm(props) {
                   id="lupine-free"
                   name="health"
                   value="lupine-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="lupine-free">Lupine</label>
               </li>
@@ -288,6 +329,7 @@ function SearchForm(props) {
                   id="mustard-free"
                   name="health"
                   value="mustard-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="mustard-free">Mustard</label>
               </li>
@@ -297,6 +339,7 @@ function SearchForm(props) {
                   id="peanut-free"
                   name="health"
                   value="peanut-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="peanut-free">Peanut</label>
               </li>
@@ -306,6 +349,7 @@ function SearchForm(props) {
                   id="sesame-free"
                   name="health"
                   value="sesame-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="sesame-free">Sesame</label>
               </li>
@@ -315,6 +359,7 @@ function SearchForm(props) {
                   id="shellfish-free"
                   name="health"
                   value="shellfish-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="shellfish-free">Shellfish</label>
               </li>
@@ -324,6 +369,7 @@ function SearchForm(props) {
                   id="soy-free"
                   name="health"
                   value="soy-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="soy-free">Soy</label>
               </li>
@@ -333,6 +379,7 @@ function SearchForm(props) {
                   id="tree-nut-free"
                   name="health"
                   value="tree-nut-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="tree-nut-free">Tree Nut</label>
               </li>
@@ -342,6 +389,7 @@ function SearchForm(props) {
                   id="wheat-free"
                   name="health"
                   value="wheat-free"
+                  onChange={props.toggleCheckbox}
                 />
                 <label htmlFor="wheat-free">Wheat</label>
               </li>

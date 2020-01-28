@@ -36,13 +36,13 @@ This chart illustrates the organization of the app's components, and whereI will
 
 Bronze (MVP)
 
-- [ ] Built with React
-- [ ] Includes data from Edamam Recipe Search API
-- [ ] Uses at least 4 separate components
-- [ ] Deployed using Heroku
-- [ ] Uses flexbox or CSS grid for layout
-- [ ] Allows users to search recipes with ingredients to include
-- [ ] Allows users to search recipes with ingredients to exclude
+- [x] Built with React
+- [x] Includes data from Edamam Recipe Search API
+- [x] Uses at least 4 separate components
+- [x] Deployed using Heroku
+- [x] Uses flexbox or CSS grid for layout
+- [x] Allows users to search recipes with ingredients to include
+- [x] Allows users to search recipes with ingredients to exclude
 - [ ] Allows users to search recipes with health-conscious options
 
 Silver
@@ -51,7 +51,7 @@ Silver
 
 Gold
 
-- [ ] Bookmark feature, so users can come back to recipes later or make them again
+- [x] Bookmark feature, so users can come back to recipes later or make them again
 - [ ] Feature that allows users to write and store their own recipes
 
 ## Features
