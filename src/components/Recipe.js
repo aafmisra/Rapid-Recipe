@@ -183,6 +183,7 @@ class Recipe extends Component {
             onClick={() => {
               let bookmarks = this.props.bookmarkedRecipes;
               if (bookmarks.includes(!eachRecipe.recipe.uri)) {
+                console.log(bookmarks)
                 bookmarks.push(eachRecipe);
                 window.localStorage.setItem(
                   'bookmarks',
@@ -197,6 +198,7 @@ class Recipe extends Component {
                   'bookmarks',
                   JSON.stringify(bookmarks)
                 );
+                console.log(indx, bookmarks)
               }
             }}
           />

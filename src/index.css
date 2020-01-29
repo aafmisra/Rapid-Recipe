@@ -70,10 +70,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: var(--tertiary);
-}
-
 a:visited {
   color: initial;
 }
@@ -291,7 +287,7 @@ footer a {
   font-size: 12px;
 }
 
-footer a:hover {
+footer a:hover, span:hover {
   color: var(--tertiary);
 }
 
