@@ -6,8 +6,12 @@
   --lines: #0d0d0d;
   --paragraph: #2a2a2a;
 }
-:root, body, #root, .App {
+:root,
+body,
+#root,
+.App {
   height: 100%;
+  width: 100%;
 }
 
 .App {
@@ -19,7 +23,8 @@
   flex: 1 0 auto;
 }
 
-.header, footer {
+.header,
+footer {
   flex-shrink: 0;
 }
 
@@ -60,7 +65,6 @@ h1:hover {
   display: flex;
   align-items: baseline;
 }
-
 
 a {
   text-decoration: none;
@@ -110,18 +114,31 @@ label.search {
   margin: 0 3px 0 6px;
 }
 
+button {
+  background-color: var(--tertiary);
+  border-radius: 3px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: var(--secondary);
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+}
+
 button.search {
   flex-grow: 0;
-  border-radius: 3px;
   margin-left: 4px;
-  background-color: var(--tertiary);
-  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-  font-weight: bold;
-  padding: 6px 10px;
-  border:none;
-  color: var(--secondary);
-  cursor: pointer;
+}
+
+button.fullRecipe {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+button.clear {
+  font-size: 14px;
+  margin: 10px 20px;
 }
 
 ul {
@@ -169,7 +186,7 @@ details li {
   /* box-shadow: 0 3px 6px rgba(0, 0, 0, 1); */
   border-radius: 6px;
   position: relative;
-  color: var(--paragraph)
+  color: var(--paragraph);
 }
 
 h3 {
@@ -182,7 +199,8 @@ h3 {
   width: 60%;
 }
 
-.ingredientList, .nutrition {
+.ingredientList,
+.nutrition {
   padding: 0;
   margin-left: 20px;
   text-align: left;
@@ -193,7 +211,9 @@ table {
   font-size: 11px;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid var(--lines);
   padding: 2px 4px;
 }
@@ -217,7 +237,7 @@ button.fullRecipe {
   color: var(--secondary);
   padding: 6px 10px;
   margin-top: 10px;
-  border:none;
+  border: none;
   cursor: pointer;
 }
 
@@ -228,26 +248,46 @@ button.fullRecipe {
   bottom: 2%;
 }
 
-footer{
-    border-top: 1px dashed var(--tertiary);
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: .6;
-    padding: 5px 20px;
-    position: relative;
-    bottom: 0;
+.groceries {
+  padding: 0 20px;
+  line-height: 2;
 }
 
-footer a{
-    color:black;
-    text-decoration: none;
-    display:block;
-    line-height: 1.4;
-    font-size: 12px;
+.notBought {
+  font-style: normal;
+  text-decoration: none;
+  list-style-type: circle;
+  cursor: pointer;
+}
+
+.bought {
+  font-style: italic;
+  text-decoration-line: line-through;
+  list-style-type: disc;
+  color: var(--tertiary);
+  cursor: pointer;
+}
+
+footer {
+  border-top: 1px dashed var(--tertiary);
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 0.6;
+  padding: 10px 20px;
+  position: relative;
+  bottom: 0;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  line-height: 1.4;
+  font-size: 12px;
 }
 
 footer a:hover {
-    color: var(--tertiary);
+  color: var(--tertiary);
 }
 
 @media (min-width: 600px) {

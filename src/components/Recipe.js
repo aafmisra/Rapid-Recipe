@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import bookmark from '../unbookmarked.svg';
+import unbookmarked from '../unbookmarked.svg';
 
 class Recipe extends Component {
   render() {
@@ -38,11 +38,15 @@ class Recipe extends Component {
                 <tr>
                   <td>Calories</td>
                   <td>
-                    {Math.round(eachRecipe.recipe.totalNutrients.ENERC_KCAL.quantity)}
+                    {Math.round(
+                      eachRecipe.recipe.totalNutrients.ENERC_KCAL.quantity
+                    )}
                     {eachRecipe.recipe.totalNutrients.ENERC_KCAL.unit}
                   </td>
                   <td>
-                    {Math.round(eachRecipe.recipe.totalDaily.ENERC_KCAL.quantity)}
+                    {Math.round(
+                      eachRecipe.recipe.totalDaily.ENERC_KCAL.quantity
+                    )}
                     {eachRecipe.recipe.totalDaily.ENERC_KCAL.unit}
                   </td>
                 </tr>
@@ -60,7 +64,9 @@ class Recipe extends Component {
                 <tr>
                   <td>Saturated Fat</td>
                   <td>
-                    {Math.round(eachRecipe.recipe.totalNutrients.FASAT.quantity)}
+                    {Math.round(
+                      eachRecipe.recipe.totalNutrients.FASAT.quantity
+                    )}
                     {eachRecipe.recipe.totalNutrients.FASAT.unit}
                   </td>
                   <td>
@@ -85,7 +91,9 @@ class Recipe extends Component {
                 <tr>
                   <td>Carbs</td>
                   <td>
-                    {Math.round(eachRecipe.recipe.totalNutrients.CHOCDF.quantity)}
+                    {Math.round(
+                      eachRecipe.recipe.totalNutrients.CHOCDF.quantity
+                    )}
                     {eachRecipe.recipe.totalNutrients.CHOCDF.unit}
                   </td>
                   <td>
@@ -96,7 +104,9 @@ class Recipe extends Component {
                 <tr>
                   <td>Fiber</td>
                   <td>
-                    {Math.round(eachRecipe.recipe.totalNutrients.FIBTG.quantity)}
+                    {Math.round(
+                      eachRecipe.recipe.totalNutrients.FIBTG.quantity
+                    )}
                     {eachRecipe.recipe.totalNutrients.FIBTG.unit}
                   </td>
                   <td>
@@ -107,14 +117,18 @@ class Recipe extends Component {
                 <tr>
                   <td>Sugar</td>
                   <td colSpan="2">
-                    {Math.round(eachRecipe.recipe.totalNutrients.SUGAR.quantity)}
+                    {Math.round(
+                      eachRecipe.recipe.totalNutrients.SUGAR.quantity
+                    )}
                     {eachRecipe.recipe.totalNutrients.SUGAR.unit}
                   </td>
                 </tr>
                 <tr>
                   <td>Protein</td>
                   <td>
-                    {Math.round(eachRecipe.recipe.totalNutrients.PROCNT.quantity)}
+                    {Math.round(
+                      eachRecipe.recipe.totalNutrients.PROCNT.quantity
+                    )}
                     {eachRecipe.recipe.totalNutrients.PROCNT.unit}
                   </td>
                   <td>
@@ -149,20 +163,46 @@ class Recipe extends Component {
           >
             <button className="fullRecipe">Full Recipe</button>
           </a>
-            <img
-              src={bookmark}
-              alt="bookmark"
-              className="bookmark"
-              onClick={() => {
-                console.log(eachRecipe);
-                this.props.bookmarkedRecipes.push(eachRecipe);
+          <button
+            className="fullRecipe"
+            onClick={() => {
+              let groceries = this.props.groceryList;
+              let ingredients = eachRecipe.recipe.ingredientLines;
+              groceries.push(ingredients);
+              window.localStorage.setItem(
+                'groceries',
+                JSON.stringify(groceries)
+              );
+            }}
+          >
+            Add to Grocery List
+          </button>
+          <img
+            src={unbookmarked}
+            alt="bookmark"
+            className="bookmark"
+            onClick={() => {
+              let bookmarks = this.props.bookmarkedRecipes;
+              if (bookmarks.includes(!eachRecipe.recipe.uri)) {
+                bookmarks.push(eachRecipe);
                 window.localStorage.setItem(
                   'bookmarks',
-                  JSON.stringify(this.props.bookmarkedRecipes)
+                  JSON.stringify(bookmarks)
                 );
-                console.log('pushed', this.props.bookmarkedRecipes);
-              }}
-            />
+              } else {
+                let indx = bookmarks
+                  .map(b => b.recipe.uri)
+                  .indexOf(eachRecipe.recipe.uri);
+                bookmarks.splice(indx, 1);
+                window.localStorage.setItem(
+                  'bookmarks',
+                  JSON.stringify(bookmarks)
+                );
+                window.location.reload();
+                console.log(indx, bookmarks);
+              }
+            }}
+          />
         </div>
       );
     });

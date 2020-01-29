@@ -7,6 +7,7 @@ function Results(props) {
       <Recipe
         recipes={props.recipes}
         bookmarkedRecipes={props.bookmarkedRecipes}
+        groceryList={props.groceryList}
       />
     </div>
   );

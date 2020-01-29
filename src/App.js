@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import Results from './components/Results';
+import GroceryList from './components/GroceryList';
+
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +15,9 @@ class App extends Component {
       excludeSearchString: '',
       bookmarkedRecipes: JSON.parse(
         window.localStorage.getItem('bookmarks') || '[]'
+      ),
+      groceryList: JSON.parse(
+        window.localStorage.getItem('groceries') || '[]'
       )
     };
   }
@@ -96,6 +101,7 @@ class App extends Component {
                   <Results
                     recipes={this.state.recipes}
                     bookmarkedRecipes={this.state.bookmarkedRecipes}
+                    groceryList={this.state.groceryList}
                   />
                 </div>
               );
@@ -108,10 +114,16 @@ class App extends Component {
                 <Results
                   recipes={this.state.bookmarkedRecipes}
                   bookmarkedRecipes={this.state.bookmarkedRecipes}
+                  groceryList={this.state.groceryList}
                 />
               );
             }}
           />
+          <Route path="/groceries" render={() => {
+            return (
+              <GroceryList groceryList={this.state.groceryList}/>
+            )
+          }}/>
         </Switch>
         </div>
         <footer>

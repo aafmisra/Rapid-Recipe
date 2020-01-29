@@ -43,11 +43,11 @@ Bronze (MVP)
 - [x] Uses flexbox or CSS grid for layout
 - [x] Allows users to search recipes with ingredients to include
 - [x] Allows users to search recipes with ingredients to exclude
-- [ ] Allows users to search recipes with health-conscious options
+- [x] Allows users to search recipes with health-conscious options
 
 Silver
 
-- [ ] Feature that allows users to generate a shopping list of ingredients they need to buy for each recipe so they don’t have to create it manually
+- [x] Feature that allows users to generate a shopping list of ingredients they need to buy for each recipe so they don’t have to create it manually
 
 Gold
 
