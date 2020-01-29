@@ -76,6 +76,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <div className="main">
         <Switch>
           <Route
             path="/"
@@ -112,10 +113,13 @@ class App extends Component {
             }}
           />
         </Switch>
+        </div>
         <footer>
-          <p>©2020 Asha Misra &#128024;</p>
-          <a href="https://github.com/aafmisra/fieldwork-flashcards">Check out the repo on GitHub</a>
+          <p>©2020 Asha Misra <span role="img" aria-label="elephant emoji">&#128024;</span></p>
+          <a href="https://github.com/aafmisra/Rapid-Recipe">Check out the repo on GitHub</a>
           <a href="https://www.linkedin.com/in/asha-misra/">Find me on LinkedIn</a>
+          <a href="https://developer.edamam.com/edamam-docs-recipe-api">Built with Edamam Recipe Search API</a>
+          <a href="https://thenounproject.com/ageeva_say/">Logo by Aaz</a>
         </footer>
       </div>
     );

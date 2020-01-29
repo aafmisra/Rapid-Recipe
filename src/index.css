@@ -1,10 +1,26 @@
 :root {
   --main: #eff0f3;
   --secondary: #fffffe;
-  --tertiary: #ff8e3c;
+  --tertiary: #fa533d;
   --tertiary-light: #ffbb8a;
   --lines: #0d0d0d;
   --paragraph: #2a2a2a;
+}
+:root, body, #root, .App {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.header, footer {
+  flex-shrink: 0;
 }
 
 body {
@@ -14,6 +30,7 @@ body {
   line-height: 1.5;
   padding: 0;
   margin: 0;
+  display: flex;
 }
 
 .header {
@@ -28,6 +45,7 @@ body {
   border-bottom: 1px dashed var(--tertiary);
   position: sticky;
   top: 0;
+  z-index: 9999;
 }
 h1 {
   margin: 0;
@@ -102,7 +120,7 @@ button.search {
   font-weight: bold;
   padding: 6px 10px;
   border:none;
-  color: var(--main);
+  color: var(--secondary);
   cursor: pointer;
 }
 
@@ -130,6 +148,10 @@ details li {
   justify-content: space-evenly;
 }
 
+/* .results {
+  min-height: 400px;
+} */
+
 .resultsGallery {
   column-gap: 1rem;
   margin-top: 1rem;
@@ -137,14 +159,14 @@ details li {
 }
 
 .recipeCard {
-  border: none;
+  border: 1px dashed var(--tertiary);
   text-align: center;
   break-inside: avoid;
   font-size: 12px;
   padding: 20px;
   margin-bottom: 1rem;
   background-color: var(--secondary);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 1); */
   border-radius: 6px;
   position: relative;
   color: var(--paragraph)
@@ -160,10 +182,30 @@ h3 {
   width: 60%;
 }
 
-.ingredientList {
+.ingredientList, .nutrition {
   padding: 0;
   margin-left: 20px;
   text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+table, th, td {
+  border: 1px solid var(--lines);
+  padding: 2px 4px;
+}
+
+th {
+  background-color: var(--lines);
+  color: var(--secondary);
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: var(--main);
 }
 
 button.fullRecipe {
@@ -172,8 +214,9 @@ button.fullRecipe {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-weight: bold;
-  color: var(--main);
+  color: var(--secondary);
   padding: 6px 10px;
+  margin-top: 10px;
   border:none;
   cursor: pointer;
 }
@@ -188,9 +231,9 @@ button.fullRecipe {
 footer{
     border-top: 1px dashed var(--tertiary);
     margin-top: 20px;
-    font-style: italic;
     font-size: 14px;
     line-height: .6;
+    padding: 5px 20px;
     position: relative;
     bottom: 0;
 }
@@ -200,10 +243,11 @@ footer a{
     text-decoration: none;
     display:block;
     line-height: 1.4;
+    font-size: 12px;
 }
 
 footer a:hover {
-    text-decoration: underline;
+    color: var(--tertiary);
 }
 
 @media (min-width: 600px) {

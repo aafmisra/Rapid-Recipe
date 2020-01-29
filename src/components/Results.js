@@ -3,7 +3,7 @@ import Recipe from './Recipe';
 
 function Results(props) {
   return (
-    <div>
+    <div className="results">
       <Recipe
         recipes={props.recipes}
         bookmarkedRecipes={props.bookmarkedRecipes}
