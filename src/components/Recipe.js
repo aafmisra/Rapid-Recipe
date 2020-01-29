@@ -6,7 +6,6 @@ class Recipe extends Component {
     if (!this.props.recipes.length) {
       return <p className="instructions">Search ingredients to get started!</p>;
     }
-    console.log(this.props);
     const resultsGallery = this.props.recipes.map(eachRecipe => {
       return (
         <div className="recipeCard" key={eachRecipe.recipe.uri}>
@@ -199,7 +198,6 @@ class Recipe extends Component {
                   JSON.stringify(bookmarks)
                 );
                 window.location.reload();
-                console.log(indx, bookmarks);
               }
             }}
           />

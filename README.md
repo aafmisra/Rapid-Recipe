@@ -47,6 +47,7 @@ Bronze (MVP)
 
 Silver
 
+- [x] Fully responsive
 - [x] Feature that allows users to generate a shopping list of ingredients they need to buy for each recipe so they don’t have to create it manually
 
 Gold

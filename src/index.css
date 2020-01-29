@@ -70,12 +70,16 @@ a {
   text-decoration: none;
 }
 
-span:hover {
+a:hover {
   color: var(--tertiary);
 }
 
-.logo img {
-  height: 5rem;
+a:visited {
+  color: initial;
+}
+
+img.logo {
+  height: 4rem;
   margin: 0 0.5rem 0 0;
   width: auto;
 }
@@ -133,12 +137,16 @@ button.search {
 
 button.fullRecipe {
   font-size: 12px;
-  margin-top: 10px;
+  margin: 10px;
 }
 
 button.clear {
   font-size: 14px;
   margin: 10px 20px;
+}
+
+span {
+  margin-left: 1rem;
 }
 
 ul {
@@ -164,10 +172,6 @@ details li {
   border: 1px dashed var(--tertiary);
   justify-content: space-evenly;
 }
-
-/* .results {
-  min-height: 400px;
-} */
 
 .resultsGallery {
   column-gap: 1rem;
@@ -257,6 +261,7 @@ button.fullRecipe {
   font-style: normal;
   text-decoration: none;
   list-style-type: circle;
+  color: var(--paragraph);
   cursor: pointer;
 }
 
@@ -288,6 +293,13 @@ footer a {
 
 footer a:hover {
   color: var(--tertiary);
+}
+
+@media (max-width: 599px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (min-width: 600px) {

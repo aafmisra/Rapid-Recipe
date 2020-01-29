@@ -12,12 +12,12 @@ function Header() {
         </Link>
       </div>
       <div className="headerLinks">
-      <Link to="/bookmarks">
-        <span>My Recipes</span>
-      </Link>
-      <Link to="/groceries">
-        <span>My Groceries</span>
-      </Link>
+        <Link to="/bookmarks">
+          <span>My Recipes</span>
+        </Link>
+        <Link to="/groceries">
+          <span>My Groceries</span>
+        </Link>
       </div>
     </div>
   );
