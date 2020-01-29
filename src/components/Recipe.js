@@ -197,7 +197,6 @@ class Recipe extends Component {
                   'bookmarks',
                   JSON.stringify(bookmarks)
                 );
-                window.location.reload();
               }
             }}
           />
