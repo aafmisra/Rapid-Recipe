@@ -59,19 +59,66 @@ Gold
 
 # Search
 
+Users can input ingredients they want to include in their recipe, as well as ingredients to exclude. In addition, they can choose from an extensive list of dietary filters like vegan, keto, and low-carb to find meals that fit their dietary restrictions.
+
 # Bookmark
+
+Users can click a bookmark image on any recipe they find, and it will get added to their "My Recipes" section. These recipes are saved client-side using local storage, so they bookmarks persist between browser sessions without a login. Users can also remove recipes from their bookmarked section.
 
 # Grocery List
 
+Each recipe card also has an "Add to Grocery List" button. When the user clicks it, that recipe's ingredients are added to the "My Groceries" section. On that page, users can click individual items to cross them off the list, and click a button to clear the list when they are done. This feature also uses local storage to maintain the list between browser sessions.
+
 ## Technologies Used
+
+Rapid Recipe was built with ReactJS, JSX, and CSS. React router was used for all navigation, making it a single-page application. [Edamam Recipe Search API](https://developer.edamam.com/edamam-docs-recipe-api) was used for the recipe searches. This awesome API is what allowed for detailed search parameters.
 
 ## Biggest Challenges
 
+My biggest challenge for this project was extracting the value of the various search inputs and turning it into something that could be plugged into the API fetch url. The checkbox inputs were particularly challenging, as they come with a unique set of properties and behaviors to consider.
+
 ## Biggest Successes
+
+The thing I'm most proud of on this project is the number of features I was able to add. I think the biggest relief, though, came when I finally conquered the checkbox search filters. Adding that functionality was pretty essential to my concept, and the long list of filters is one of the big benefits of using Edamam over other recipe databases, so I was pretty excited when I finally got it working. Rather than using state to control each checkbox, I created a Set of checked checkboxes.
 
 ### A snippet I'm particularly proud of
 
+I'm pretty proud of my handleSubmit function, which is the onSubmit handler for my search form. Input values from both text inputs are split on the spaces (allowing users to input multiple ingredients at once), and then an array is created with those substrings being converted to the API search parameter syntax, and then joined as one string to be plugged into the fetch url. A similar process is performed on the checkbox inputs. An array is created from the Setof checked checkboxes which is then mapped and joined to be plugged in as one string into the fetch url.
+
+```javascript
+handleSubmit = event => {
+  event.preventDefault();
+  let splitString = this.state.excludeSearchString
+    .split(' ')
+    .map(subStr => {
+      return `&excluded=${subStr}`;
+    })
+    .join('');
+  let setArray = Array.from(this.selectedCheckboxes);
+  let filterArray = setArray
+    .map(entry => {
+      return `&${entry.name}=${entry.value}`;
+    })
+    .join('');
+  this.getRecipes(splitString, filterArray);
+};
+```
+
 ## Unsolved Issues and Ideas for the Future
+
+In the future, I'd love for users to be able to create and store their own recipes.
+
+One small piece of functionality I wasn't able to include involves the bookmark icon. I think the user experience would be improved if bookmarked recipes displayed a filled-in icon. I'd like to tackle this in the future.
+
+## Installation Instructions
+
+Fork and clone this repo to download your local copy of the files. Use yarn start or npm start to launch the development server.
+
+Create an account on Edamam to get your app ID and API key. Store those in an .env.local file with the name used in the fetch url.
+
+## Contibutions
+
+Please submit an issue on this repo if you find a bug in the code. To make suggestions on features or other behavior, please make a pull request. Thanks!
 
 ## Gratitude
 
