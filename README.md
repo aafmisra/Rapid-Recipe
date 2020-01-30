@@ -30,7 +30,7 @@ It is an app that allows users to input ingredients to search for recipes in Eda
 This wireframe shows my vision for a landing page with a simple design, with search form and results gallery components.
 
 ![Rapid Recipe Component Hierarchy](https://i.imgur.com/KFUwW9e.jpg)
-This chart illustrates the organization of the app's components, and whereI will manage state and props.
+This chart illustrates the planned organization of the app's components, and where I will manage state and props.
 
 ### Bronze, Silver, Gold, Platinum plans
 
@@ -57,21 +57,21 @@ Gold
 
 ## Features
 
-# Search
+### Search
 
 Users can input ingredients they want to include in their recipe, as well as ingredients to exclude. In addition, they can choose from an extensive list of dietary filters like vegan, keto, and low-carb to find meals that fit their dietary restrictions.
 
-# Bookmark
+### Bookmark
 
-Users can click a bookmark image on any recipe they find, and it will get added to their "My Recipes" section. These recipes are saved client-side using local storage, so they bookmarks persist between browser sessions without a login. Users can also remove recipes from their bookmarked section.
+Users can click a bookmark icon on any recipe they find, and it will get added to their "My Recipes" section. These recipes are saved client-side using local storage, so the bookmarks persist between browser sessions without a login. Users can also remove recipes from their bookmarked section.
 
-# Grocery List
+### Grocery List
 
 Each recipe card also has an "Add to Grocery List" button. When the user clicks it, that recipe's ingredients are added to the "My Groceries" section. On that page, users can click individual items to cross them off the list, and click a button to clear the list when they are done. This feature also uses local storage to maintain the list between browser sessions.
 
 ## Technologies Used
 
-Rapid Recipe was built with ReactJS, JSX, and CSS. React router was used for all navigation, making it a single-page application. [Edamam Recipe Search API](https://developer.edamam.com/edamam-docs-recipe-api) was used for the recipe searches. This awesome API is what allowed for detailed search parameters.
+Rapid Recipe was built with ReactJS, JSX/HTML, and CSS. React router was used for all navigation, making it a single-page application. [Edamam Recipe Search API](https://developer.edamam.com/edamam-docs-recipe-api) was used for the recipe searches. This awesome API is what allowed for detailed search parameters.
 
 ## Biggest Challenges
 
@@ -83,7 +83,7 @@ The thing I'm most proud of on this project is the number of features I was able
 
 ### A snippet I'm particularly proud of
 
-I'm pretty proud of my handleSubmit function, which is the onSubmit handler for my search form. Input values from both text inputs are split on the spaces (allowing users to input multiple ingredients at once), and then an array is created with those substrings being converted to the API search parameter syntax, and then joined as one string to be plugged into the fetch url. A similar process is performed on the checkbox inputs. An array is created from the Setof checked checkboxes which is then mapped and joined to be plugged in as one string into the fetch url.
+I'm pretty proud of my handleSubmit function, which is the onSubmit handler for my search form. Input values from both text inputs are split on the spaces (allowing users to input multiple ingredients at once), and then an array is created with those substrings being converted to the API search parameter syntax, and then joined as one string to be plugged into the fetch url. A similar process is performed on the checkbox inputs. An array is created from the Set of checked checkboxes which is then mapped and joined to be plugged in as one string into the fetch url.
 
 ```javascript
 handleSubmit = event => {
@@ -112,11 +112,11 @@ One small piece of functionality I wasn't able to include involves the bookmark 
 
 ## Installation Instructions
 
-Fork and clone this repo to download your local copy of the files. Use yarn start or npm start to launch the development server.
+Fork and clone this repo to download your local copy of the files. Use `yarn start` or `npm start` to launch the development server.
 
-Create an account on Edamam to get your app ID and API key. Store those in an .env.local file with the name used in the fetch url.
+Create a free account on Edamam to get your app ID and API key. Store those in an .env.local file with the names used in the fetch url.
 
-## Contibutions
+## Contributions
 
 Please submit an issue on this repo if you find a bug in the code. To make suggestions on features or other behavior, please make a pull request. Thanks!
 
