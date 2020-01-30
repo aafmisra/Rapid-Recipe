@@ -2,7 +2,7 @@
 
 ## About This App
 
-! [ ]()
+! [Rapid Recipe search page](https://i.imgur.com/PH1aXjx.png)
 
 I love to cook. My father is from India, and thanks to him I have tried and learned how to cook many different cuisines. My partner, on the other hand, knows how to cook about 5 things and most of them involve pasta. Rapid Recipe is for both of us.
 
@@ -56,6 +56,12 @@ Gold
 - [ ] Feature that allows users to write and store their own recipes
 
 ## Features
+
+# Search
+
+# Bookmark
+
+# Grocery List
 
 ## Technologies Used
 
