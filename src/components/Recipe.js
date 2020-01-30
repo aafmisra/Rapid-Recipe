@@ -182,7 +182,11 @@ class Recipe extends Component {
             className="bookmark"
             onClick={() => {
               let bookmarks = this.props.bookmarkedRecipes;
-              if (bookmarks.includes(!eachRecipe.recipe.uri)) {
+              let indx = bookmarks
+                .map(b => b.recipe.uri)
+                .indexOf(eachRecipe.recipe.uri);
+              if (indx === -1) {
+                // add the bookmark
                 console.log(bookmarks)
                 bookmarks.push(eachRecipe);
                 window.localStorage.setItem(
@@ -190,9 +194,7 @@ class Recipe extends Component {
                   JSON.stringify(bookmarks)
                 );
               } else {
-                let indx = bookmarks
-                  .map(b => b.recipe.uri)
-                  .indexOf(eachRecipe.recipe.uri);
+                // remove the bookmark
                 bookmarks.splice(indx, 1);
                 window.localStorage.setItem(
                   'bookmarks',
