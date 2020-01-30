@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       recipes: [],
+      errorMsg: '',
       includeSearchString: '',
       excludeSearchString: '',
       bookmarkedRecipes: JSON.parse(
@@ -41,6 +42,7 @@ class App extends Component {
   };
   // converts values of inputs into variables that can be passed into the fetch url
   handleSubmit = event => {
+    this.setState({ errorMsg: ''})
     event.preventDefault();
     let splitString = this.state.excludeSearchString
       .split(' ')
@@ -63,8 +65,15 @@ class App extends Component {
     fetch(url)
       .then(response => response.json())
       .then(response => {
-        let recipes = response.hits;
-        this.setRecipes(recipes);
+        if (response.count) {
+          let recipes = response.hits;
+          this.setRecipes(recipes);
+        } else {
+          this.setState({
+            errorMsg:
+              "Oops! Looks like we didn't find any recipes with those ingredients."
+          });
+        }
       });
   };
   //render search form, search results, bookmarks page, and grocery list
@@ -117,6 +126,7 @@ class App extends Component {
               }}
             />
           </Switch>
+          <p className="instructions error">{this.state.errorMsg}</p>
         </div>
         <footer>
           <p>

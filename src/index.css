@@ -89,6 +89,10 @@ img.logo {
   padding: 0 20px;
 }
 
+.error {
+  color: var(--tertiary);
+}
+
 .textInputs {
   display: flex;
   flex-direction: row;
@@ -287,7 +291,8 @@ footer a {
   font-size: 12px;
 }
 
-footer a:hover, span:hover {
+footer a:hover,
+span:hover {
   color: var(--tertiary);
 }
 
