@@ -18,11 +18,12 @@ class App extends Component {
       groceryList: JSON.parse(window.localStorage.getItem('groceries') || '[]')
     };
   }
-
+  //on page load, create new Set to store checkboxes that get clicked
   componentDidMount = () => {
     this.selectedCheckboxes = new Set();
   };
 
+  //when the "checked" state of a checkbox is clicked, either add or remove it from the Set
   toggleCheckbox = event => {
     if (this.selectedCheckboxes.has(event.target)) {
       this.selectedCheckboxes.delete(event.target);
@@ -30,15 +31,15 @@ class App extends Component {
       this.selectedCheckboxes.add(event.target);
     }
   };
-
+  // set the recipes state to the response we get from the fetch
   setRecipes = recipes => {
     this.setState({ recipes: recipes });
   };
-
+  //onchange handler for input search boxes
   handleChange = event => {
     this.setState({ [event.target.id]: event.target.value });
   };
-
+  // converts values of inputs into variables that can be passed into the fetch url
   handleSubmit = event => {
     event.preventDefault();
     let splitString = this.state.excludeSearchString
@@ -55,7 +56,7 @@ class App extends Component {
       .join('');
     this.getRecipes(splitString, filterArray);
   };
-
+  //take search inputs and app/key info, and return a list of recipes
   getRecipes = (splitString, filterArray) => {
     const url = `https://api.edamam.com/search?app_id=${process.env.REACT_APP_RECIPE_ID}&app_key=${process.env.REACT_APP_RECIPE_KEY}&from=0&to=12&q=${this.state.includeSearchString}${splitString}${filterArray}`;
 
@@ -64,17 +65,9 @@ class App extends Component {
       .then(response => {
         let recipes = response.hits;
         this.setRecipes(recipes);
-        if (!recipes.length) {
-          return (
-            <p>
-              Oops! Looks like we didn't find any recipes with those
-              ingredients.
-            </p>
-          );
-        }
       });
   };
-
+  //render search form, search results, bookmarks page, and grocery list
   render() {
     return (
       <div className="App">

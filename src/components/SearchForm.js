@@ -8,6 +8,7 @@ function SearchForm(props) {
         ingredients separated by a space (i.e. greek+yogurt lemon)
       </p>
       <form onSubmit={props.handleSubmit} className="searchForm">
+        {/* two text search inputs */}
         <div className="textInputs">
           <label className="search">include:</label>
           <input
@@ -32,6 +33,7 @@ function SearchForm(props) {
             Search
           </button>
         </div>
+        {/* collapsible lists of checkbox inputs to filter search results by health and diet tags */}
         <details className="checkboxes">
           <summary>Click for recipe filters</summary>
           <div className="checkboxLists">
@@ -248,7 +250,7 @@ function SearchForm(props) {
                   value="sugar-conscious"
                   onChange={props.toggleCheckbox}
                 />
-                <label htmlFor="low-sugar">Low-sugar</label>
+                <label htmlFor="sugar-conscious">sugar-conscious</label>
               </li>
             </ul>
             <ul className="allergies">

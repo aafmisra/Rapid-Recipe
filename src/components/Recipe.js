@@ -3,19 +3,23 @@ import unbookmarked from '../unbookmarked.svg';
 
 class Recipe extends Component {
   render() {
+    //propmts users to make a search on page load
     if (!this.props.recipes.length) {
       return <p className="instructions">Search ingredients to get started!</p>;
     }
+    //iterate over our list of recipes and return a 'card' with various info for each recipe
     const resultsGallery = this.props.recipes.map(eachRecipe => {
       return (
         <div className="recipeCard" key={eachRecipe.recipe.uri}>
+          {/* recipe name */}
           <h3>{eachRecipe.recipe.label}</h3>
+          {/* recipe image */}
           <img
             src={eachRecipe.recipe.image}
             alt={eachRecipe.recipe.label}
             className="recipePic"
           />
-
+          {/* ingredients list */}
           <h4>Ingredients:</h4>
 
           <ul key={eachRecipe.recipe.url} className="ingredientList">
@@ -23,6 +27,7 @@ class Recipe extends Component {
               return <li key={i}>{ingr}</li>;
             })}
           </ul>
+          {/* collapsible nutrition facts label */}
           <details className="nutrition">
             <summary>Nutrition Facts</summary>
             <table className="nutritionTable">
@@ -154,7 +159,7 @@ class Recipe extends Component {
               </tfoot>
             </table>
           </details>
-
+          {/* link to full recipe */}
           <a
             href={eachRecipe.recipe.url}
             target="_blank"
@@ -162,6 +167,7 @@ class Recipe extends Component {
           >
             <button className="fullRecipe">Full Recipe</button>
           </a>
+          {/* button to add ingredients to grocery list*/}
           <button
             className="fullRecipe"
             onClick={() => {
@@ -176,6 +182,7 @@ class Recipe extends Component {
           >
             Add to Grocery List
           </button>
+          {/* 'button' to add recipe to bookmarks page */}
           <img
             src={unbookmarked}
             alt="bookmark"
@@ -187,7 +194,6 @@ class Recipe extends Component {
                 .indexOf(eachRecipe.recipe.uri);
               if (indx === -1) {
                 // add the bookmark
-                console.log(bookmarks)
                 bookmarks.push(eachRecipe);
                 window.localStorage.setItem(
                   'bookmarks',
@@ -200,7 +206,6 @@ class Recipe extends Component {
                   'bookmarks',
                   JSON.stringify(bookmarks)
                 );
-                console.log(indx, bookmarks)
               }
             }}
           />
