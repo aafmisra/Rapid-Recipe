@@ -83,7 +83,7 @@ The thing I'm most proud of on this project is the number of features I was able
 
 ### A snippet I'm particularly proud of
 
-I'm pretty proud of my handleSubmit function, which is the onSubmit handler for my search form. Input values from both text inputs are split on the spaces (allowing users to input multiple ingredients at once), and then an array is created with those substrings being converted to the API search parameter syntax, and then joined as one string to be plugged into the fetch url. A similar process is performed on the checkbox inputs. An array is created from the Set of checked checkboxes which is then mapped and joined to be plugged in as one string into the fetch url.
+I'm pretty proud of my handleSubmit function, which is the onSubmit handler for my search form. Input values from the "exclude" text input are split on the spaces (allowing users to input multiple ingredients at once), and then an array is created with those substrings being converted to the API search parameter syntax, and then joined as one string to be plugged into the fetch url. A similar process is performed on the checkbox inputs. An array is created from the Set of checked checkboxes which is then mapped and joined to be plugged in as one string into the fetch url.
 
 ```javascript
 handleSubmit = event => {
