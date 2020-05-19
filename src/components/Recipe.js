@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import unbookmarked from '../unbookmarked.svg';
 
-class Recipe extends Component {
-  render() {
+function Recipe() {
+   
     //propmts users to make a search on page load
     if (!this.props.recipes.length) {
       return <p className="instructions">Search ingredients to get started!</p>;
@@ -214,7 +214,7 @@ class Recipe extends Component {
       );
     });
     return <div className="resultsGallery">{resultsGallery}</div>;
-  }
+  
 }
 
 export default Recipe;

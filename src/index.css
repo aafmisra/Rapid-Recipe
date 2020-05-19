@@ -296,12 +296,6 @@ span:hover {
   color: var(--tertiary);
 }
 
-@media (max-width: 599px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-  }
-}
 
 @media (min-width: 600px) {
   .resultsGallery {

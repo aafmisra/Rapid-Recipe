@@ -42,7 +42,7 @@ class App extends Component {
   };
   // converts values of inputs into variables that can be passed into the fetch url
   handleSubmit = event => {
-    this.setState({ errorMsg: ''})
+    this.setState({ errorMsg: '' });
     event.preventDefault();
     let splitString = this.state.excludeSearchString
       .split(' ')
